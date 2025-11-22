@@ -9,7 +9,6 @@ if not horizontal or not vertical:
     print("Некорректный ввод. Пожалуйста, укажите символы для рамки")
 else:
    line = horizontal * (len(word) + 4)
-
-    print(line)
-    print(f"{vertical} {word} {vertical}")
-    print(line)
+   print(line)
+   print(f"{vertical} {word} {vertical}")
+   print(line)
