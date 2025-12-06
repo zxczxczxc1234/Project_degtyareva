@@ -1,10 +1,14 @@
 # Даны три целых числа
 #проверить истинность высказывания: "каждое из чисел положительное"
-a = int(input("Введите первое число: "))
-b = int(input("Введите второе число: "))
-c = int(input("Введите третье число: "))
+try:
+    a = int(input("Введите первое число: "))
+    b = int(input("Введите второе число: "))
+    c = int(input("Введите третье число: "))
+    if a > 0 and b > 0 and c > 0:
+        print("True")
+    else:
+        print("False")
 
-if a > 0 and b > 0 and c > 0:
-    print("True")
-else:
-    print("False")
+except ValueError:
+    print("Неверный код. Попробуйте снова")
+
