@@ -12,32 +12,33 @@ domknigi = {"Толстой", "Грибоедов", "Чехов", "Пушкин"
 bykmarket = {"Пушкин", "Достоевский", "Маяковский"}
 galereya = {"Чехов", "Тютчев", "Пушкин"}
 
-#1
-gde_moshno = []
-gde_nelza = []
+need = {"Достоевский", "Пушкин"}
 
-if "Достоевский" in magistr and "Пушкин" in magistr:
-    gde_moshno.append("Магистр")
-else:
-    gde_nelza.append("Магистр")
+gde_moshno = set()
+gde_nelza = set()
 
-if "Достоевский" in domknigi and "Пушкин" in domknigi:
-    gde_moshno.append("ДомКниги")
+if magistr & need == need:
+    gde_moshno.add("Магистр")
 else:
-    gde_nelza.append("ДомКниги")
+    gde_nelza.add("Магистр")
 
-if "Достоевский" in bykmarket and "Пушкин" in bykmarket:
-    gde_moshno.append("БукМаркет")
+if domknigi & need == need:
+    gde_moshno.add("ДомКниги")
 else:
-    gde_nelza.append("БукМаркет")
+    gde_nelza.add("ДомКниги")
 
-if "Достоевский" in galereya and "Пушкин" in galereya:
-    gde_moshno.append("Галерея")
+if bykmarket & need == need:
+    gde_moshno.add("БукМаркет")
 else:
-    gde_nelza.append("Галерея")
+    gde_nelza.add("БукМаркет")
+
+if galereya & need == need:
+    gde_moshno.add("Галерея")
+else:
+    gde_nelza.add("Галерея")
 
 print(f"Магазины, где можно приобрести и Достоевского и Пушкина: {gde_moshno}")
-print(f"Магазины, где нельзя приобрести обоих авторов: {gde_nelza}")
+print(f"Магазины, где нельзя приобрести и Достоевского и Пушкина:{gde_nelza}")
 
 #2
 galereya.add("Грибоедов")
