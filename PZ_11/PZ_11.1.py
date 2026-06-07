@@ -1,22 +1,19 @@
-#Организовать и вывести последовательность из N случайных целых чисел. 
-# Из исходной последовательности организовать последовательность, содержащую положительные числа и последовательность, содержащую отрицательные числа. 
-# Найти количество элементов в полученных последовательностях.
-def get_max_value(data):
-    numeric_data = [int(x) for x in data if x and x.isdigit()]
-    return max(numeric_data) if numeric_data else None
+#1.Организовать и вывести последовательность из N случайных целых чисел. Из
+# исходной последовательности организовать последовательность, содержащую
+# положительные числа и отрицательные числа. Найти
+# количество элементов в полученных последовательностях.
+import random
 
-def process_file_part1(input_filename, output_filename):
-    with open(input_filename, 'r') as infile, open(output_filename, 'w') as outfile:
-        for line in infile:
-            parts = line.strip().split()
-            numeric_values = [int(x) for x in parts if x.isdigit()]
+get_len = lambda data_list: len(data_list)
 
-            if numeric_values:
-                max_in_line = max(numeric_values)
-                outfile.write(f"{line.strip()} {max_in_line}\n")
+N = int(input("введите количество чисел: "))
 
-# Пример использования:
-input_file_1 = 'input.txt'  # Укажите имя вашего входного файла
-output_file_1 = 'output_part1.txt' # Выходной файл для первой части
+source_list = [random.randint(-5, 5) for _ in range(N)]
 
-process_file_part1(input_file_1, output_file_1)
+positive_list = [x for x in source_list if x > 0]
+negative_list = [x for x in source_list if x < 0]
+
+print(f"исходная последовательность: {' '.join(map(str, source_list))}")
+
+print(f"положительные числа: {' '.join(map(str, positive_list))} , количество: {get_len(positive_list)}")
+print(f"отрицательные числа: {' '.join(map(str, negative_list))} , количество: {get_len(negative_list)}")

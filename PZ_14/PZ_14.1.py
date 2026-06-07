@@ -36,10 +36,11 @@ cmb_deg.insert(0, "-- select --")
 cmb_deg.grid(row=0, column=0)
 
 tk.Radiobutton(
-    f_deg, text="Pursuing", bg="#2E6B9E", fg="white", selectcolor="#2E6B9E", state="disabled"
+    f_deg, text="Pursuing", bg="#2E6B9E", fg="white", selectcolor="#2E6B9E"
 ).grid(row=0, column=1, padx=10)
+
 tk.Radiobutton(
-    f_deg, text="Completed", bg="#2E6B9E", fg="white", selectcolor="#2E6B9E", state="disabled"
+    f_deg, text="Completed", bg="#2E6B9E", fg="white", selectcolor="#2E6B9E"
 ).grid(row=0, column=2)
 
 make_lbl("Avarage CPI :", 4)

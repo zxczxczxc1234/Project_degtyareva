@@ -24,7 +24,7 @@ circle1 = Circle(color="Красный", radius=5)
 circle2 = Circle(color="Синий", radius=10)
 circle3 = Circle(color="Зеленый", radius=2.5)
 
-print("Информация о 3 кругах")
+print("информация о 3 кругах")
 
 print(f"Форма: {circle1.shape_type}, Цвет: {circle1.color}, Радиус: {circle1.radius}")
 print(f"Площадь: {circle1.calculate_area():.2f}, Периметр: {circle1.calculate_perimeter():.2f}" and "\n")

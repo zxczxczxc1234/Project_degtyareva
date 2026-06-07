@@ -1,34 +1,25 @@
 #Из предложенного текстового файла (text18-14.txt) вывести на экран его содержимое, количество пробельных символов. 
 # Сформировать новый файл, 
 # в который поместить текст в стихотворной форме предварительно заменив символы третей строки их числовыми кодами.
-#Из предложенного текстового файла (text18-14.txt) вывести на экран его содержимое, количество пробельных символов. 
-# Сформировать новый файл, 
-# в который поместить текст в стихотворной форме предварительно заменив символы третей строки их числовыми кодами.
-t = 0
-d = 0
-for i in open('стих.txt', encoding='UTF-8'):
-    print(i, end='')
-    t += 1
-    for j in i:
-        if j == ' ' or j == '\n':
-            d += 1
-print(end='\n')
-print('Количество пробельных символов: ', d, end='\n')
+f = open('PZ_10/стих.txt', 'r', encoding='utf-8')
+lines = f.readlines()
+f.close()
 
-f1 = open('стих.txt', encoding='UTF-8')
-l = f1.readlines()
-f1.close()
+print("содержимое исходного файла")
+print(''.join(lines))
 
-if len(l) > 2:
-    new_line = ''
-    for c in l[2].strip():
-        new_line = new_line + str(ord(c)) + ' '
-    l[2] = new_line + '\n'
+full_text = ''.join(lines)
+print("кол-во пробельных символов:", full_text.count(' '))
 
-print('\nНовый текст:')
-for line in l:
-    print(line, end='')
+f_out = open('PZ_10/новый_стих.txt', 'w', encoding='utf-8')
 
-f2 = open('стих_новый.txt', 'w', encoding='UTF-8')
-f2.writelines(l)
-f2.close()
+for i in range(len(lines)):
+    if i == 2:
+        coded_line = ""
+        for char in lines[i]:
+            coded_line = coded_line + str(ord(char)) + " "
+        f_out.write(coded_line + '\n')
+    else:
+        f_out.write(lines[i])
+
+f_out.close()
